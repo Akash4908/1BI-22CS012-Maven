@@ -1,0 +1,19 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  name: Default
+
+steps:
+- script: echo Maven Azure Application
+  displayName: 'Run a one-line script'
+
+- script: mvn clean install
+  displayName: 'Building Maven Application'
+- script: java -jar target/MyMavenApp-1.0-SNAPSHOT.jar
+  displayName: 'Running jar'
